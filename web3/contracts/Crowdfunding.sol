@@ -18,7 +18,7 @@ contract Crowdfunding {
 
     uint256 public numberOfCampaigns = 0;
 
-    function createCampaign(address _owner, stirng memeory _title, stirng memory _description, uint256 _target, uint256 _deadline, string memory _img) public returns (uint256) {
+    function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _img) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
         //Is everything good ?
@@ -30,7 +30,7 @@ contract Crowdfunding {
         campaign.target = _target;
         campaign.deadline = _deadline;
         campaign.amountCollected = 0;
-        campaign.img = _img
+        campaign.img = _img;
 
         numberOfCampaigns++;
 
@@ -43,7 +43,7 @@ contract Crowdfunding {
         Campaign storage campaign = campaigns[_id];
 
         campaign.donators.push(msg.sender);
-        campaigns.donations.push(amount);
+        campaign.donations.push(amount);
 
         (bool sent, ) = payable(campaign.owner).call{value: amount}("");
 
@@ -51,10 +51,18 @@ contract Crowdfunding {
             campaign.amountCollected = campaign.amountCollected + amount;
         }
     }
-    
-    function getDonators(uint256 _id) view public returns (address[] memory, uint256) {
-        
+
+    function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
+        return (campaigns[_id].donators, campaigns[_id].donations);
     }
-    
-    function getCampaigns() {}
+
+    function getCampaigns() view public returns (Campaign[] memory) {
+        Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
+        for (uint256 i = 0; i < numberOfCampaigns; i++) {
+            Campaign storage item = campaigns[i];
+
+            allCampaigns[i] = item;
+        }
+        return allCampaigns;
+    }
 }

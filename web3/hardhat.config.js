@@ -7,6 +7,8 @@ module.exports = {
   zksolc: {
     version: "1.4.1",
     compilerSource: "binary",
+    defaultNetwork: "megaeth",
+
     settings: {
       optimizer: {
         enabled: true,
@@ -29,6 +31,11 @@ module.exports = {
       chainId: 324,
       verifyURL:
         "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
+    },
+    hardhat: {},
+    megaeth: {
+      url: "https://carrot.megaeth.com/rpc",
+      account: ['0x${process.env.PRIVATE_KEY}'],
     },
   },
   paths: {
