@@ -33,8 +33,8 @@ module.exports = {
         "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
     },
     hardhat: {},
-    megaeth: {
-      url: "https://carrot.megaeth.com/rpc",
+    sepolia: {
+      url: "https://eth-sepolia.g.alchemy.com/public",
       account: ['0x${process.env.PRIVATE_KEY}'],
     },
   },
