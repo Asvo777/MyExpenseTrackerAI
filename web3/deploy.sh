@@ -1,0 +1,2 @@
+$env:SECRET_KEY = Get-Content .env | Where-Object {$_ -like "SECRET_KEY=*"} | ForEach-Object {$_.Split('=')[1]}
+dotenv -e .env -- cross-env SECRET_KEY=%SECRET_KEY% npx thirdweb@latest deploy -k %SECRET_KEY%
