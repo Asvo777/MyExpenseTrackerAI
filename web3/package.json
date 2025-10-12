@@ -2,7 +2,7 @@
   "name": "hardhat-javascript-starter",
   "scripts": {
     "build": "npx thirdweb@latest detect",
-    "deploy": "./deploy.sh",
+    "deploy": "./deploy.sh", // Use command in Powershell terminal only
     "publish": "npx thirdweb@latest publish"
   },
   "devDependencies": {
