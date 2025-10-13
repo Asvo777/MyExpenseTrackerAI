@@ -1,2 +1,1 @@
-# Crowdfunding-Plateform
-Web3 Blockchain Crowdfunding Plateform Demo
+# My-Expense-Tracker-AI
