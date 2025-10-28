@@ -1,5 +1,5 @@
 import getRecords from '@/app/actions/getRecords';
-//import BarChart from './BarChart'; // Ensure BarChart.tsx or BarChart.jsx exists in the same directory
+import BarChart from './BarChart'; // Ensure BarChart.tsx or BarChart.jsx exists in the same directory
 
 const RecordChart = async () => {
   const { records, error } = await getRecords();
@@ -83,12 +83,12 @@ const RecordChart = async () => {
         </div>
       </div>
       <div className='overflow-x-auto'>
-        {/* <BarChart
+        <BarChart
           records={records.map((record) => ({
             ...record,
             date: String(record.date),
           }))}
-        /> */}
+        />
       </div>
     </div>
   );
