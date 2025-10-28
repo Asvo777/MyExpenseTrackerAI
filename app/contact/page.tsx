@@ -130,7 +130,7 @@ const ContactPage = () => {
                 <div className='text-emerald-600 dark:text-emerald-400 font-medium text-sm sm:text-base'>
                   123 AI Innovation St
                   <br />
-                  Tech City, USA
+                  Tech City, CA
                 </div>
               </div>
             </div>
